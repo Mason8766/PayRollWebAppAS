@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         mywebView=(WebView) findViewById(R.id.webview);
         mywebView.setWebViewClient(new WebViewClient());
+//        mywebView.loadUrl("https://IPADDRESS:3000/");
         mywebView.loadUrl("https://www.w3schools.com/");
         WebSettings webSettings=mywebView.getSettings();
         webSettings.setJavaScriptEnabled(true);
