@@ -2,7 +2,9 @@ package com.example.myapplicationxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -14,13 +16,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    //    http://192.168.119.204:3000/webapp
+      //  http://10.0.0.245:3000/webapp
+            Uri uri = Uri.parse("http://10.0.0.244:3000/webapp"); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
 
-        mywebView=(WebView) findViewById(R.id.webview);
-        mywebView.setWebViewClient(new WebViewClient());
-//        mywebView.loadUrl("https://IPADDRESS:3000/");
-        mywebView.loadUrl("https://www.w3schools.com/");
-        WebSettings webSettings=mywebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
     }
     public class mywebClient extends WebViewClient {
         @Override
